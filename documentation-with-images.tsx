@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Database, GitBranch, BarChart3, Search, Filter, TrendingUp } from "lucide-react"
+import { Database, GitBranch, BarChart3, Search, Filter, TrendingUp, ShieldCheck } from "lucide-react"
 
 export default function DocumentationWithImages() {
   const dataQualityMetrics = [
@@ -456,6 +456,61 @@ FROM students s;`}
                     </TableRow>
                   </TableBody>
                 </Table>
+              </CardContent>
+            </Card>
+
+            {/* Data Quality Challenges */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <ShieldCheck className="w-6 h-6 mr-2 text-amber-600" />
+                  Data Quality Challenges & Management
+                </CardTitle>
+                <CardDescription>
+                  Addressing potential issues to ensure data reliability and trust.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div>
+                    <h5 className="font-semibold text-lg mb-2">Common Challenges</h5>
+                    <ul className="list-disc list-inside space-y-2 text-sm text-gray-700">
+                      <li>
+                        <strong>Inconsistent Data Entry:</strong> Variations in how data is recorded at the source, such as
+                        different naming conventions for departments (`"CompSci"` vs `"Computer Science"`).
+                      </li>
+                      <li>
+                        <strong>Missing Information:</strong> Gaps in operational data, like students with no recorded
+                        date of birth or enrollments missing a final grade for courses still in progress.
+                      </li>
+                      <li>
+                        <strong>Timeliness of Updates:</strong> Delays in propagating changes from the operational system to
+                        the data warehouse, affecting the accuracy of real-time reporting.
+                      </li>
+                      <li>
+                        <strong>Maintaining Referential Integrity:</strong> Ensuring that every foreign key in the fact table
+                        correctly points to an existing record in the corresponding dimension table.
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-lg mb-2">Metadata Management</h5>
+                    <ul className="list-disc list-inside space-y-2 text-sm text-gray-700">
+                      <li>
+                        <strong>Data Dictionary:</strong> This documentation serves as a critical piece of metadata, defining
+                        tables, columns, and business rules for all users.
+                      </li>
+                      <li>
+                        <strong>Data Lineage:</strong> Documenting the flow of data from the source operational tables,
+                        through ETL transformations, and into the final data warehouse tables.
+                      </li>
+                      <li>
+                        <strong>Version Control:</strong> Using tools like Git to manage changes to SQL scripts and
+                        documentation, ensuring a reproducible and auditable history of the data warehouse structure.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </TabsContent>
