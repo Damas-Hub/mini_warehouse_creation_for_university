@@ -133,7 +133,7 @@ export default function DocumentationWithImages() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <Card>
                 <CardContent className="pt-6">
-                  <div className="text-2xl font-bold text-blue-600">8</div>
+                  <div className="text-2xl font-bold text-blue-600">7</div>
                   <p className="text-sm text-gray-600">Core Tables</p>
                 </CardContent>
               </Card>
@@ -258,6 +258,58 @@ export default function DocumentationWithImages() {
                 </CardContent>
               </Card>
             </div>
+
+            {/* Aggregate Tables */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Aggregate Tables for Performance</CardTitle>
+                <CardDescription>
+                  Pre-aggregated summary tables to accelerate common analytical queries.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div>
+                    <h5 className="font-medium mb-2">agg_enrollment_summary_by_semester</h5>
+                    <p className="text-sm text-gray-600 mb-2">
+                      Provides a semester-level summary of enrollment metrics by department.
+                    </p>
+                    <pre className="bg-gray-100 p-3 rounded text-xs overflow-x-auto">
+                      {`CREATE TABLE agg_enrollment_summary_by_semester (
+    semester_key INT,
+    department_key INT,
+    total_enrollments INT,
+    total_completions INT,
+    avg_grade DECIMAL(5,2),
+    total_credits_earned INT,
+    completion_rate DECIMAL(5,2),
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (semester_key, department_key)
+);`}
+                    </pre>
+                  </div>
+                  <div>
+                    <h5 className="font-medium mb-2">agg_student_performance_summary</h5>
+                    <p className="text-sm text-gray-600 mb-2">
+                      Summarizes each student's performance per semester, including GPA calculations.
+                    </p>
+                    <pre className="bg-gray-100 p-3 rounded text-xs overflow-x-auto">
+                      {`CREATE TABLE agg_student_performance_summary (
+    student_key INT,
+    semester_key INT,
+    total_courses INT,
+    total_credits_attempted INT,
+    total_credits_earned INT,
+    semester_gpa DECIMAL(3,2),
+    cumulative_gpa DECIMAL(3,2),
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (student_key, semester_key)
+);`}
+                    </pre>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </TabsContent>
 
           {/* SQL Examples Tab */}
