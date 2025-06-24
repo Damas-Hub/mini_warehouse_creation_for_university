@@ -5,7 +5,7 @@ This is a comprehensive University Course Registration Data Warehouse system tha
 ## 🏗 Architecture & Components
 
 ### 1. Operational Database (Source System)
-- 8 core tables: Students, Courses, Faculty, Departments, Semesters, Course Sections, Enrollments
+- 7 core tables: Students, Courses, Faculty, Departments, Semesters, Course Sections, Enrollments
 - Normalized structure (3NF) for transactional operations
 - Complete SQL scripts for table creation and sample data loading
 
